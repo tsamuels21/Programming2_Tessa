@@ -1,8 +1,7 @@
-# Tessa
 '''
 FORMATTING PROBLEM SET (12 PTS)
 '''
-
+# Tessa
 # put your name HERE
 # https://github.com/fwparkercode/Programming2_SP19
 # New change
@@ -12,13 +11,21 @@ PROBLEM 1 (2pts)
 Use {}.format() to print 0.000321192 in scientific notation to two decimals
 '''
 
+x = 0.000321192
+
+print("x in scientific notation is {:.2e}".format(x))
+
+print()
 '''
 PROBLEM 2 (2pts)
 You get 8 out of 9 on a quiz.
 Print 8/9 using {}.format() so that it appears as 89%
 '''
 
+score = 8 / 9
+print("Your score is {:.0%}".format(score))
 
+print()
 '''
 PROBLEM 3 (3pts)
 Take the following program:
@@ -41,7 +48,14 @@ Do not use any concatenation in your code (no plus signs).
 You should only have two double quotes in each print statement.
 '''
 
+score = 41237
+highscore = 1023407
 
+print("Score: " "{:14,}".format(score))
+print("High Score: " "{:7,}".format(highscore))
+
+
+print()
 '''
 PROBLEM 4 (5 pts) 
 Create a program that loops from 1 to 20 and lists the decimal equivalent of their inverse. 
@@ -67,3 +81,15 @@ Use print formatting to EXACTLY match the following output:
 1/19 = 0.0526
 1/20 = 0.05
 '''
+'''
+for i in range(1, 21):
+    x = 1 / i
+    if i < 10:
+        print("1/"+ str(i), " = {:.3}".format(x))
+    if i >= 10:
+        print("1/"+ str(i), "= {:.3}".format(x))
+'''
+
+
+
+

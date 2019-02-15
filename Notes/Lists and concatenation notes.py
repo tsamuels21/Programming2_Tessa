@@ -1,21 +1,97 @@
-# Tessa
-'''
+# Lists
+
+my_list = ["Bev", "Abe", "Cam", "Dan", "Eve", "Flo", "Gus"]
+my_numlist = [8, 4, 7, 5, 2, 9]
+
+print(my_list[0]) # single index
+print(my_list[-3:-1])  # multiple items, first one included, last one not
+
+# copy of a list
+my_newlist = my_list[:]
+my_newlist[3] = "Deb"
+print(my_newlist)
+print(my_list)
+
+# 2d list
+my_2dlist = [["Abe", 8], ["Bev", 4], ["Cam", 7]]
+print(my_2dlist[2][0])
+
+# if in
+if "Cam" in my_list:
+    print("Cam is on the list")
+
+# list functions
+# for strings, order is alphabetical (sort of)
+print(min(my_list))  # smallest value
+print(max(my_list))  # largest value
+print(sum(my_numlist))  # sums a list
+
+# list methods
+my_list.append("Abe")
+print(my_list.count("Abe"))  # finds number of times an item appears
+my_list.insert(2, "Evelyn")
+
+my_list.sort()
+my_numlist.sort()
+print(my_list)
+print(my_numlist)
+
+my_list.reverse() # reverse sort
+print(my_list)
+
+my_list.pop()  # pops off the last one in the list
+print(my_list)
+my_list.pop(2)  # pops off the second item
+print(my_list)
+first_in_line = my_list.pop(0)  # returns the popped value
+print(first_in_line)
+print(my_list)
+
+del my_list[0:2]  # look this one up
+print(my_list)
+
+print(my_list.index("Cam"))
+
+
+# ITERATING A LIST
+#  make a list from 0 to 9
 my_list = []
-my_list.revers()    # reverses the order
+for i in range(10):
+    my_list.append(i)
 print(my_list)
 
-# import one!   pop method
-my_list.pop()   # pops one off the end of the list
+
+#  print each item in the list using for each
+for num in my_list:
+    num += 1
+    print(num)
 print(my_list)
-customer = my_list.pop()    # pops and returns which one you want to grab
 
-# concatenation
-first = "Francis"
-last = "Parker"
-print(first + last)
+#  add 10 to each item in the list using iteration
+for i in range(len(my_list)):
+    my_list[i] += 10
+print(my_list)
 
-print(my_list + my_numbers)
-'''
+# make a 2d list that is 10 x 10   [[0, 0], [0, 1], [0, 2] ... [9, 9]]
+my_list = []
+for x in range(10):
+    for y in range(10):
+        my_list.append([x, y])
+print(my_list)
+
+# print every pair
+for pair in my_list:
+    print(pair)
+
+
+# add 10 to each item using iteration
+for i in range(len(my_list)):
+    for j in range(len(my_list[i])):
+        my_list[i][j] += 10
+
+print(my_list)
+
+
 
 
 # ITERATING THOUGH LISTS

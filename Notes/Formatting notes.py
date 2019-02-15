@@ -41,7 +41,7 @@ for i in range(20):
     print("x is {:>+8,}".format(x))  # force positive and negative signs
 
 # precision (.2f would be 2 decimals floating point)
-# datatype (could be f(loat), b(inary), x(hex), d(ecimel), or int)
+# datatype (could be f(loat), b(inary), x(hex), d(ecimel), e(xponent) or int), %,
 for i in range(20):
     x = random.random() * 200 - 100
     print("x is: {:.5f}".format(x))
