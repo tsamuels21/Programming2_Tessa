@@ -81,14 +81,14 @@ Use print formatting to EXACTLY match the following output:
 1/19 = 0.0526
 1/20 = 0.05
 '''
-'''
+
 for i in range(1, 21):
     x = 1 / i
     if i < 10:
         print("1/"+ str(i), " = {:.3}".format(x))
     if i >= 10:
         print("1/"+ str(i), "= {:.3}".format(x))
-'''
+
 
 
 
