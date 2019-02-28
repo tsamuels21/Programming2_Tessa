@@ -6,10 +6,29 @@ from class and from Ch15 of the textbook website
 #1.  (6pts) Write code which finds and prints the longest
 # word in the provided dictionary.  If there are more
 # than one longest word, print them all.
+import re
+
+def split_line(line):
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
+letters_list = []
+
+file = open('dictionary.txt')
+
+for line in file:
+    line = line.strip()
+    words = split_line(line)
+    for letter in words:
+        let = len(letter)
+        letters_list.append(let)
+
+print(letters_list)
+
 
 #2.  (8pts)  Write code which finds
 # The total word count AND average word length
 # in "AliceInWonderLand.txt"
+
 
 # CHOOSE ONE OF THE FOLLOWING TWO PROBLEMS
 
