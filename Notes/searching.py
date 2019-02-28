@@ -63,6 +63,51 @@ with open('../data/super_villains.txt') as f:
 print(villains)
 
 
+# Linear Search
+print(villains.index("RENARD THE TORTURER"))
+
+key = "RENARD THE TORTURER"
+i = 0   # index my search
+
+while i < (len(villains) - 1) and key !=  villains[i]:
+    i += 1
+
+if i < len(villains):
+    print("Found", key, "at position", i)
+else:
+    print("Could not find", key)
+
+
+# Binary Search
+villains.sort()
+
+key = "THEODORA THE WICKED"
+lower_bound = 0
+upper_bound = len(villains)
+found = False
+loops = 0
+
+# loop until we find it (or we finish the list)
+
+while lower_bound <= upper_bound and not found:
+    loops += 1
+    middle_pos = (upper_bound + lower_bound) // 2
+    if villains[middle_pos] < key:
+        lower_bound = middle_pos + 1
+    elif villains[middle_pos] > key:
+        upper_bound = middle_pos - 1
+    else:
+        found = True
+
+if found:
+    print(key, "was found at position", middle_pos, "after", loops, "loops")
+else:
+    print(key, "was not found after", loops, "loops")
+
+
+# This function takes in a line of text and returns 
+
+
 
 
 
