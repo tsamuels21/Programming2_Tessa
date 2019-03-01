@@ -25,10 +25,28 @@ for line in file:
 print(letters_list)
 
 
+
+print()
 #2.  (8pts)  Write code which finds
 # The total word count AND average word length
 # in "AliceInWonderLand.txt"
 
+letters_list = []
+
+file = open('AliceInWonderLand.txt')
+num = 0
+
+for line in file:
+    line = line.strip()
+    words = split_line(line)
+    for letter in words:
+        let = len(letter)
+        letters_list.append(let)
+
+
+
+print(letters_list)
+print(num)
 
 # CHOOSE ONE OF THE FOLLOWING TWO PROBLEMS
 
