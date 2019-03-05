@@ -39,11 +39,13 @@ not so good", "Very doubtful" ]
 my_word = answer_list.pop(random.randrange(len(answer_list)))
 print(my_word)
 
+print(random.choice(answer_list))
+
 print()
 # PROBLEM 3 (Shuffle - 8pts)
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
-# Then create a function that shuffles the deck, producing a random order. Print the random deck. 
+# Then create a function that shuffles the deck, producing a random order. Print the random deck.
 # Then deal yourself a hand of 5 cards off the top.  Print the hand.  Print the remaining deck.
 
 suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
@@ -117,4 +119,11 @@ else:
     print("You are $", money, "in debt")
 
 
+print()
 
+winning_pick = [random.randrange(10) for x in range(4)]
+
+your_tickets = [[random.randrange(10) for x in range(4)] for y in range(1000)]
+
+wins = your_tickets.count(winning_pick)
+print(wins)
