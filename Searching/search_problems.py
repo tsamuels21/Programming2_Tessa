@@ -68,7 +68,7 @@ for i in seven_w:
     seven.append(seven_w.count(i))
 
 most = seven_w[seven.index(max(seven))]
-print(most)
+print("The most frequently occurring 7 letter word is ", most)
 
 
 #3  (12pts)Find the most frequently occurring
