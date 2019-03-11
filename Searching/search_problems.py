@@ -19,8 +19,10 @@ def longest_word(filename):
     return [word for word in words if len(word) == max_len]
 
 print("The longest word is ", longest_word('dictionary.txt'))
-
-
+'''
+with open('dictionary.txt') as f:
+    dictionary = [x.strip() for x in f]
+'''
 print()
 #2.  (8pts)  Write code which finds
 # The total word count AND average word length
@@ -70,6 +72,11 @@ for i in seven_w:
 most = seven_w[seven.index(max(seven))]
 print("The most frequently occurring 7 letter word is ", most)
 
+'''
+sevens = [x.upper() for x in alice_words if len(x) == 7]
+sevens_count = [sevens.count(x) for x in sevens]
+print(sevens[sevens_count.index(max(sevens_count)
+'''
 
 #3  (12pts)Find the most frequently occurring
 # seven letter word in "AliceInWonderLand.txt"
