@@ -35,6 +35,8 @@ print("Selection Sort")
 print(rand_list)
 
 print()
+
+
 # Insertion Sort
 
 rand_list = [random.randrange(1, 100) for x in range(100)]
@@ -53,6 +55,8 @@ for key_pos in range(1, len(rand_list)):
 print(rand_list)
 
 print()
+
+
 # Sorting in real life with Python
 rand_list = [random.randrange(1, 100) for x in range(100)]
 print(rand_list)
