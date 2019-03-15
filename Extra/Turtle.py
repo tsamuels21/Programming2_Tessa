@@ -8,7 +8,7 @@ my_turtle.goto(0, 0)
 
 
 my_window.colormode(255)
-for j in range(20):
+for j in range(17):
     my_turtle.begin_fill()
     my_turtle.left(20)
     for i in range(3):
