@@ -2,7 +2,7 @@
 # Searching (Chapter 15 from programarcadegames.com)
 
 # Open a file to read
-file = open('../data/super_villains.txt', 'r')    # open file to read
+file = open('data/super_villains.txt', 'r')    # open file to read
 
 print(file)
 
@@ -14,11 +14,11 @@ file.close()    # ends your access to the file
 
 # Open a file to write (overwrites all previous, no going back)
 '''
-file = open('../data/super_villains.txt', 'w')    # open file to write
+file = open('data/super_villains.txt', 'w')    # open file to write
 file.write('Lee the Merciless\n')
 file.close()
 
-file = open('../data/super_villains.txt', 'r')    # open file to read
+file = open('data/super_villains.txt', 'r')    # open file to read
 
 for line in file:
     print(line.strip())    # strip method removes ant extra spaces, \t, and \n
@@ -27,11 +27,11 @@ file.close()
 '''
 
 # Open a file to append (does not overwrite)
-file = open('../data/super_villains.txt', 'a')
+file = open('data/super_villains.txt', 'a')
 file.write('Dan the Man\n')
 file.close()
 
-file = open('../data/super_villains.txt', 'r')    # open file to read
+file = open('data/super_villains.txt', 'r')    # open file to read
 print()
 for line in file:
     print(line.strip())    # strip method removes ant extra spaces, \t, and \n
@@ -40,14 +40,14 @@ file.close()
 
 
 # you can make a new file by opening to write
-file = open('../data/oscars.txt', 'w')
+file = open('data/oscars.txt', 'w')
 file.write('Green Book\tBest Picture\n')
 file.close()
 
 
 # better way to open and close a file
 
-with open('../data/super_villains.txt') as f:
+with open('data/super_villains.txt') as f:
     for line in f:
         print(line.strip())    # bog ol' string
     read_data = f.read()
@@ -57,7 +57,7 @@ print(read_data)
 
 
 # Read data into a list (array)
-with open('../data/super_villains.txt') as f:
+with open('data/super_villains.txt') as f:
     villains = [x.strip().upper() for x in f]
 
 print(villains)
@@ -121,7 +121,7 @@ print(line)
 print(villains)
 
 
-file = open('../data/super_villains.txt')
+file = open('data/super_villains.txt')
 
 for line in file:
     line = line.strip()

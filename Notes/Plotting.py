@@ -19,5 +19,18 @@ plt.ylabel('y label (units)')
 plt.title('Example Plot', color='gray', fontsize = 20)
 plt.axis([10, 20, 100, 1000])    # xmin, xmax, ymin, ymax
 
-plt.show()
+# plt.show()
 
+# Pretend to start a new file
+
+import matplotlib.pyplot as plt
+import csv
+
+with open('data/Libraries_-_2018_Visitors_by_Location.csv') as f:
+    reader = csv.reader(f)  # create a reader object from csv library
+    data = list(reader)    # cast it as a list
+
+print(data)
+
+library_names = [x[0] for x in data[1:]]
+print(library_names)
