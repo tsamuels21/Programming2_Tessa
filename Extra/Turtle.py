@@ -5,6 +5,7 @@ my_window = Screen()
 
 my_turtle.goto(0, 0)
 # my_turtle.goto(100, 100)
+my_turtle.speed(0)
 
 
 my_window.colormode(255)

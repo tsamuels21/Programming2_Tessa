@@ -14,3 +14,25 @@
 # (3pts) keeps asking for inputs until they are valid (see while loop from notes)
 # (4pts) calculate the force of gravity in Newtons and print the result to the user in scientific notation to two decimals.
 
+
+done = False
+while not done:
+    try:
+        m1 = int(input('What is your first mass in kg?'))
+        m2 = int(input('What is your second mass in kg?'))
+        r = int(input('What is your distance between the centers of the two masses?'))
+        done = True
+    except:
+        print("You have entered an invalid number.")
+
+g = 6.67e-11
+try:
+    f = g * (m1 * m2) / r ** 2
+except:
+    print('Something has gone wrong')
+
+
+print('The force of gravity is is {:.2e}'.format(f), 'newtons.')
+
+
+
