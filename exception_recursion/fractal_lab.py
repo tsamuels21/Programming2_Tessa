@@ -57,7 +57,7 @@ def h(x, y, size, depth):
         x, y = pos4
         h(x, y, size * 0.5, depth - 55)
 
-# h(0, 0, 300, 150)
+h(0, 0, 300, 150)
 my_screen.clear()
 
 
@@ -131,7 +131,7 @@ def snowflake(x, y, size, depth):
         snowflake(x, y, size * 0.3, depth - 100)
 
 
-# snowflake(0, 0, 475, 250)
+snowflake(0, 0, 475, 250)
 my_screen.clear()
 #3)  Create your own work of recursive art with a repeating pattern of your making (or choose another one from the files).  
 #  It must be a repeated pattern using recursion (not just loops). Snowflakes, trees, and spirals are a common choice.  
