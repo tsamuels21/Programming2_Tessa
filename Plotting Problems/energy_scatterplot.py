@@ -22,3 +22,71 @@ Challenge (for fun if you have time... not required):
 - Make schools in bottom 10 percent GHG Intesity show in red.
 - Add colleges and universities (use a different marker type)
 '''
+
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+
+with open("Chicago_Energy_Benchmarking.csv") as f:
+    reader = csv.reader(f)
+    data = list(reader)
+
+print(data)
+
+header = data.pop(0)
+print(header)
+
+k_schools = [x[6] for x in data]
+
+print(k_schools)
+
+k = []
+for x in range(len(k_schools)):
+    if k_schools[x]  == "K-12 School":
+        k.append(data[x])
+
+print(k)
+
+names = [x[2] for x in k]
+
+ghg = []
+square = []
+
+for place in k:
+    try:
+        gas = float(place[20])
+        feet = float(place[7])
+        ghg.append(gas)
+        square.append(feet)
+
+    except:
+        print("nope")
+
+
+print(ghg)
+print(square)
+
+lh_ghg = [x for x in ghg]
+lh_square = [x for x in square]
+
+fwp = [x for x in k[names.index('Francis W Parker School')]]    # finds Lincoln Park data
+print(fwp)
+
+fwp_ghg = int(fwp[20])
+fwp_feet = int(fwp[7])
+print(fwp_ghg)
+print(fwp_feet)
+
+plt.figure(1)
+
+plt.scatter(square, ghg, color='lightblue')
+
+plt.scatter(fwp_feet, fwp_ghg, color='pink', label='Francis W. Parker')
+
+plt.title("Gas Emissions -vs- Building Square Footage")
+plt.xlabel("Square Feet")
+plt.ylabel("Gas Emitted")
+
+plt.legend()
+
+plt.show()
