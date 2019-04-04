@@ -10,3 +10,17 @@
 from bs4 import BeautifulSoup
 import requests
 
+url = "https://twitter.com/RobertDowneyJr"
+page = requests.get(url)
+# print(page)
+
+soup = BeautifulSoup(page.text, "html.parser")
+# print(soup.prettify())
+
+tweets = soup.findAll(class_="TweetTextSize")
+
+for i in range(5):
+    print()
+    print(tweets[i].text)
+
+
