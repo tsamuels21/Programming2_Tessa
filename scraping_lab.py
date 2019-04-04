@@ -8,9 +8,13 @@
 # You can customize the text as you like, but it should be readable as a sentence without errors. (10pts)
 # You will need to target specific classes or other attributes to pull some parts of the data.
 # Sample sentence:  
-# Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
+# Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is
+# 0% chance of rain with winds out of the WNW at 22 mph.
 
-# Note: Although it is possible to pull a description of the weather which includes much of this data, that is not the intent.
+# Note: Although it is possible to pull a description of the weather which includes much of this data, that is not the
+# intent.
 # However, if you can do it and add the additional info, that works for me.
+from bs4 import BeautifulSoup
+import requests
 
 url = "https://weather.com/weather/tenday/l/USIL0225:1:US"

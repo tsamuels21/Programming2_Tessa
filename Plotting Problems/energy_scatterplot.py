@@ -9,7 +9,7 @@ We hypothesize that the more square footage (sqft) a school is, the more greenho
 An efficient school would have a large ratio of sqft to ghg.  
 It would also be interesting to know where Parker lies on this graph???  Let's find out.
 Make a scatterplot which does the following:  
-- Plots the Total Greenhouse gas (GHG) Emmissions (y-axis), versus building square footage (x-axis) (13pts)
+- Plots the Total Greenhouse gas (GHG) Emissions (y-axis), versus building square footage (x-axis) (13pts)
 - Includes ONLY data for K-12 Schools. (3pts)
 - Labelled x and y axis and appropriate title (3pt)
 - Annotated labels (school name) for the 3 highest and 3 lowest GHG Intensities. (3pts)
@@ -66,16 +66,14 @@ l_ghg_feet = []
 
 for place in k:
     try:
-        h = float(place[20])
-        l = float(place[20])
+        h = float(place[21])
+        b = float(place[20])
         feet = float(place[7])
         name = place[2]
-        h_ghg_feet.append([h, feet, name])
-        l_ghg_feet.append([l, feet, name])
+        h_ghg_feet.append([h, feet, name, b])
+        l_ghg_feet.append([h, feet, name, b])
     except:
         print("nope")
-# print(l_ghg_feet)
-
 l_ghg_feet.sort()
 h_ghg_feet.sort()
 
@@ -85,9 +83,11 @@ low = [x for x in l_ghg_feet[:3]]
 high_ghg = [x[0] for x in high]
 high_feet = [x[1] for x in high]
 high_name = [x[2] for x in high]
+high_g = [x[3] for x in high]
 low_ghg = [x[0] for x in low]
 low_feet = [x[1] for x in low]
 low_name = [x[2] for x in low]
+low_g = [x[3] for x in low]
 
 fwp = [x for x in k[names.index('Francis W Parker School')]]    # finds Lincoln Park data
 # print(fwp)
@@ -101,22 +101,22 @@ plt.figure(1)
 
 plt.scatter(square, ghg, color='lightblue')
 
-plt.scatter(fwp_feet, fwp_ghg, color='royalblue')
-plt.scatter(low_feet, low_ghg, color='seagreen')
-plt.scatter(high_feet, high_ghg, color='mediumpurple')
+plt.scatter(fwp_feet, fwp_ghg, color='royalblue', label='FWP')
+plt.scatter(low_feet, low_g, color='seagreen', label='Low GHG Intensity')
+plt.scatter(high_feet, high_g, color='mediumpurple', label='High GHG Intensity')
 
 # FWP
 plt.annotate('Francis W. Parker', xy=(fwp_feet, fwp_ghg), color='royalblue')
 
 # Bottom 3
-plt.annotate(low_name[0], xy=(low_feet[0], low_ghg[0]), color='seagreen')
-plt.annotate(low_name[1], xy=(low_feet[1], low_ghg[1]), color='seagreen')
-plt.annotate(low_name[2], xy=(low_feet[2], low_ghg[2]), color='seagreen')
+plt.annotate(low_name[0], xy=(low_feet[0], low_g[0]), color='seagreen')
+plt.annotate(low_name[1], xy=(low_feet[1], low_g[1]), color='seagreen')
+plt.annotate(low_name[2], xy=(low_feet[2], low_g[2]), color='seagreen')
 
 # Top 3
-plt.annotate(high_name[0], xy=(high_feet[0], high_ghg[0]), color='mediumpurple')
-plt.annotate(high_name[1], xy=(high_feet[1], high_ghg[1]), color='mediumpurple')
-plt.annotate(high_name[2], xy=(high_feet[2], high_ghg[2]), color='mediumpurple')
+plt.annotate(high_name[0], xy=(high_feet[0], high_g[0]), color='mediumpurple')
+plt.annotate(high_name[1], xy=(high_feet[1], high_g[1]), color='mediumpurple')
+plt.annotate(high_name[2], xy=(high_feet[2], high_g[2]), color='mediumpurple')
 
 
 plt.title("Gas Emissions -vs- Building Square Footage")
@@ -130,4 +130,5 @@ fit_y = [b, 700000 * m]
 
 plt.plot(fit_x, fit_y, color='mediumaquamarine')
 
+plt.legend()
 plt.show()
