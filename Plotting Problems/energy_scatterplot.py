@@ -31,21 +31,21 @@ with open("Chicago_Energy_Benchmarking.csv") as f:
     reader = csv.reader(f)
     data = list(reader)
 
-print(data)
+# print(data)
 
 header = data.pop(0)
-print(header)
+# print(header)
 
 k_schools = [x[6] for x in data]
 
-print(k_schools)
+# print(k_schools)
 
 k = []
 for x in range(len(k_schools)):
-    if k_schools[x]  == "K-12 School":
+    if k_schools[x] == "K-12 School":
         k.append(data[x])
 
-print(k)
+# print(k)
 
 names = [x[2] for x in k]
 
@@ -58,34 +58,65 @@ for place in k:
         feet = float(place[7])
         ghg.append(gas)
         square.append(feet)
-
     except:
         print("nope")
 
 
-print(ghg)
-print(square)
+h_ghg_feet = []
+l_ghg_feet = []
 
-lh_ghg = [x for x in ghg]
-lh_square = [x for x in square]
+for place in k:
+    try:
+        h = float(place[20])
+        l = float(place[20])
+        feet = float(place[7])
+        name = place[2]
+        h_ghg_feet.append([h, feet, name])
+        l_ghg_feet.append([l, feet, name])
+    except:
+        print("nope")
+# print(l_ghg_feet)
+
+l_ghg_feet.sort()
+h_ghg_feet.sort()
+
+high = [x for x in h_ghg_feet[-3:]]
+low = [x for x in l_ghg_feet[:3]]
+
+high_ghg = [x[0] for x in high]
+high_feet = [x[1] for x in high]
+high_name = [x[2] for x in high]
+low_ghg = [x[0] for x in low]
+low_feet = [x[1] for x in low]
+low_name = [x[2] for x in low]
 
 fwp = [x for x in k[names.index('Francis W Parker School')]]    # finds Lincoln Park data
-print(fwp)
+# print(fwp)
 
 fwp_ghg = int(fwp[20])
 fwp_feet = int(fwp[7])
-print(fwp_ghg)
-print(fwp_feet)
+# print(fwp_ghg)
+# print(fwp_feet)
 
 plt.figure(1)
 
 plt.scatter(square, ghg, color='lightblue')
 
-plt.scatter(fwp_feet, fwp_ghg, color='pink', label='Francis W. Parker')
+plt.scatter(fwp_feet, fwp_ghg, color='royalblue', label='Francis W. Parker')
+plt.scatter(low_feet, low_ghg, color='seagreen', label='low')
+plt.scatter(high_feet, high_ghg, color='mediumpurple', label='high')
+
 
 plt.title("Gas Emissions -vs- Building Square Footage")
 plt.xlabel("Square Feet")
 plt.ylabel("Gas Emitted")
+
+m, b = np.polyfit(square, ghg, 1)
+
+fit_x = [0, 700000]
+fit_y = [b, 700000 * m]
+
+plt.plot(fit_x, fit_y, color='mediumaquamarine')
 
 plt.legend()
 
