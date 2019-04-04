@@ -16,7 +16,6 @@ Make a scatterplot which does the following:
 - Label Francis W. Parker. (3pts)
 - Create a best fit line for schools shown. (5pts)
 - Customize your graph in a discernable way using any technique discussed or one from the API (matplotlib.org). (5pts)
-
 Challenge (for fun if you have time... not required):
 - Make schools in top 10 percent of GHG Intensity show in green.
 - Make schools in bottom 10 percent GHG Intesity show in red.
@@ -102,9 +101,22 @@ plt.figure(1)
 
 plt.scatter(square, ghg, color='lightblue')
 
-plt.scatter(fwp_feet, fwp_ghg, color='royalblue', label='Francis W. Parker')
-plt.scatter(low_feet, low_ghg, color='seagreen', label='low')
-plt.scatter(high_feet, high_ghg, color='mediumpurple', label='high')
+plt.scatter(fwp_feet, fwp_ghg, color='royalblue')
+plt.scatter(low_feet, low_ghg, color='seagreen')
+plt.scatter(high_feet, high_ghg, color='mediumpurple')
+
+# FWP
+plt.annotate('Francis W. Parker', xy=(fwp_feet, fwp_ghg), color='royalblue')
+
+# Bottom 3
+plt.annotate(low_name[0], xy=(low_feet[0], low_ghg[0]), color='seagreen')
+plt.annotate(low_name[1], xy=(low_feet[1], low_ghg[1]), color='seagreen')
+plt.annotate(low_name[2], xy=(low_feet[2], low_ghg[2]), color='seagreen')
+
+# Top 3
+plt.annotate(high_name[0], xy=(high_feet[0], high_ghg[0]), color='mediumpurple')
+plt.annotate(high_name[1], xy=(high_feet[1], high_ghg[1]), color='mediumpurple')
+plt.annotate(high_name[2], xy=(high_feet[2], high_ghg[2]), color='mediumpurple')
 
 
 plt.title("Gas Emissions -vs- Building Square Footage")
@@ -117,7 +129,5 @@ fit_x = [0, 700000]
 fit_y = [b, 700000 * m]
 
 plt.plot(fit_x, fit_y, color='mediumaquamarine')
-
-plt.legend()
 
 plt.show()
