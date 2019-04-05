@@ -18,3 +18,27 @@ from bs4 import BeautifulSoup
 import requests
 
 url = "https://weather.com/weather/tenday/l/USIL0225:1:US"
+
+page = requests.get(url)
+# print(page)
+
+soup = BeautifulSoup(page.text, "html.parser")
+# print(soup.prettify())
+date = soup.findAll(class_='day-detail clearfix')
+day = soup.findAll(class_='date-time')
+des = soup.findAll(class_='description')
+temp = soup.findAll(class_='temp')
+humid = soup.findAll(class_='humidity')
+precip = soup.findAll(class_='precip')
+wind = soup.findAll(class_='wind')
+
+# Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is
+# 0% chance of rain with winds out of the WNW at 22 mph.
+
+for i in range(1, 11):
+    print(day[i].text + ",", date[i].text, "will be", des[i].text, "with a high of", temp[i].text[:3] +
+          " degrees and a low of " + temp[i].text[-3:] + ",", "humidity at", humid[i].text + ".", "There is a", precip[i].text,
+          "chance of rain with winds out of the", wind[i].text + ".")
+    print()
+
+
