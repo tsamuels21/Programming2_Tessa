@@ -13,7 +13,7 @@
 # Your app will have the following:
 # -a label widget that shows the title of your app (2pts)
 # -a label widget and TextInput to input two masses and the radius (6pts)
-# -textInput widgets should not accept non-numerical input. (2pts)  
+# -textInput Widgets_Kivy should not accept non-numerical input. (2pts)
 # -a calculate button to execute the gravity calculation (3pts)
 # -answer label to show the calculation after you click on the button (3pts)
 # -when calculate button pressed, the answer appears in the answer label (5pts)
