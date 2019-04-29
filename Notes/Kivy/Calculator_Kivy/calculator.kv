@@ -4,11 +4,11 @@
 
 <CustButton@Button>:
     background_normal: ""
-    background_color: (0.85,0.85,0.85,1)
+    background_color: (0.505, 0.494, 0.505,1)
     color: 0,0,0,1
 
 <OrangeButton@CustButton>
-    background_color: 1, 0.5, 0, 1
+    background_color: 1, 0.016, 1, 1
     color: 1,1,1,1
 
 
@@ -20,7 +20,7 @@
         id: display
         text: ""
         background_normal: ""
-        background_color: (0.5,0.5,0.5,1)
+        background_color: (0.364, 0.635, 0.356,1)
         font_size: 30
         foreground_color: 1,1,1,1
         size_hint_y: 1.5
@@ -36,7 +36,7 @@
             on_press: display.text += self.text
         OrangeButton:
             text: "÷"
-            on_press: display.text += self.text
+            on_press: root.calculate()
     CustBoxLayout:
         CustButton:
             text: "7"
@@ -49,7 +49,7 @@
             on_press: display.text += self.text
         OrangeButton:
             text: "x"
-            on_press: display.text += self.text
+            on_press: root.divide()
     CustBoxLayout:
         CustButton:
             text: "4"
@@ -62,7 +62,7 @@
             on_press: display.text += self.text
         OrangeButton:
             text: "-"
-            on_press: display.text += self.text
+            on_press: root.calculate()
     CustBoxLayout:
         CustButton:
             text: "1"

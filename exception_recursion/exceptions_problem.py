@@ -1,4 +1,4 @@
-# Universal Gravity Calculator (15pts)
+# Universal Gravity Calculator_Kivy (15pts)
 # In physics, the force of gravity between two objects can be calculated using the equation:
 # F = G * (m1 * m2) / r**2
 # F is the force of gravity in Newtons
