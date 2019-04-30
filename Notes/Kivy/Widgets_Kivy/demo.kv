@@ -1,11 +1,30 @@
 <CustLabel@Label>
-color: 0, 0, 0, 1
+    color: 0, 0, 0, 1
 
 <DemoLayout>:
     orientation: "vertical"
+    id: demo
+    switch_text: switch_text
+    slider_text: slider_text
     BoxLayout:
         orientation: "horizontal"
         CustLabel:
-            text: switch.active
-            Switch:
-                id: switch
+            id: switch_text
+            text: str(switch.active)
+        Switch:
+            id: switch
+            on_active: demo.switch_on(self, self.active)
+    BoxLayout:
+        orientation: "horizontal"
+        CustLabel:
+            id: slider_text
+            text: "{:.2f}".format(slider.value)
+        Slider:
+            id: slider
+            min: 0
+            max: 1
+            value: 0
+            step: 0.01
+            slider_change: demo.slider_change(self, self.value)
+
+
