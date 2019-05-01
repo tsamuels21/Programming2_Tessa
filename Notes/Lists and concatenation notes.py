@@ -92,8 +92,6 @@ for i in range(len(my_list)):
 print(my_list)
 
 
-
-
 # ITERATING THOUGH LISTS
 # make a lst of numbers 0 to 9
 import random

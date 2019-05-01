@@ -27,6 +27,33 @@ Surprisingly, there are palindromic numbers that are themselves Lychrel numbers;
 How many Lychrel numbers are there below ten-thousand?
 '''
 
+y = 0
+list_l = []
+ly = 0
+
+for num in range(10000):
+    if num == 4994:
+        y += 1
+        rev = int(str(num)[::-1])
+        add = num + rev
+        add_rev = int(str(add)[::-1])
+        if add == add_rev:
+            y = 0
+        else:
+            for y in range(50):
+                nums = add
+                revs = int(str(nums)[::-1])
+                adds = nums + revs
+                add_revs = int(str(adds)[::-1])
+                y += 1
+                ly += 1
+        if ly == 50:
+            if nums not in list_l:
+                list_l.append(num)
+                y = 0
+
+print(list_l)
+print(len(list_l))
 
 '''
 PROBLEM 2 
